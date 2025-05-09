@@ -19,7 +19,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    // GET all products with pagination
+    
     @GetMapping
     public ResponseEntity<Page<Product>> getAllProducts(
             @RequestParam(defaultValue = "0") int page,
@@ -36,21 +36,21 @@ public class ProductController {
         return ResponseEntity.ok(products);
     }
 
-    // GET product by id
+   
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         return ResponseEntity.ok(product);
     }
 
-    // POST create a new product
+    
     @PostMapping
     public ResponseEntity<Product> createProduct(@Valid @RequestBody Product product) {
         Product newProduct = productService.createProduct(product);
         return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
-    // PUT update product
+    
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(
             @PathVariable Long id, 
@@ -60,14 +60,14 @@ public class ProductController {
         return ResponseEntity.ok(updatedProduct);
     }
 
-    // DELETE product
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }
 
-    // GET products by category id with pagination
+   
     @GetMapping("/category/{categoryId}")
     public ResponseEntity<Page<Product>> getProductsByCategoryId(
             @PathVariable Long categoryId,
