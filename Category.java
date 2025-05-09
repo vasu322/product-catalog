@@ -27,7 +27,7 @@ public class Category {
     @Column(length = 500)
     private String description;
 
-    // One-to-Many relationship with Product
+    
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
 }
