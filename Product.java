@@ -36,7 +36,7 @@ public class Product {
     @Column(name = "stock_quantity")
     private Integer stockQuantity;
 
-    // Many-to-One relationship with Category
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     @JsonIgnoreProperties({"products", "hibernateLazyInitializer"})
