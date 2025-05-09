@@ -20,7 +20,7 @@ public class CategoryController {
     private final CategoryService categoryService;
     private static final int DEFAULT_PAGE_SIZE = 10;
 
-    // GET all categories with pagination
+    
     @GetMapping
     public ResponseEntity<Page<Category>> getAllCategories(
             @RequestParam(defaultValue = "0") int page,
@@ -37,21 +37,21 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
-    // GET category by id
+    
     @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoryById(@PathVariable Long id) {
         Category category = categoryService.getCategoryById(id);
         return ResponseEntity.ok(category);
     }
 
-    // POST create a new category
+    
     @PostMapping
     public ResponseEntity<Category> createCategory(@Valid @RequestBody Category category) {
         Category newCategory = categoryService.createCategory(category);
         return new ResponseEntity<>(newCategory, HttpStatus.CREATED);
     }
 
-    // PUT update category
+   
     @PutMapping("/{id}")
     public ResponseEntity<Category> updateCategory(
             @PathVariable Long id, 
@@ -61,7 +61,7 @@ public class CategoryController {
         return ResponseEntity.ok(updatedCategory);
     }
 
-    // DELETE category
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);
