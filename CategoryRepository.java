@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    // Spring Data JPA provides all basic CRUD operations
-    // Custom queries can be added here if needed
+    
 }
