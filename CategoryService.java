@@ -15,23 +15,23 @@ public class CategoryService {
 
     private final CategoryRepository categoryRepository;
 
-    // Get all categories with pagination
+    
     public Page<Category> getAllCategories(Pageable pageable) {
         return categoryRepository.findAll(pageable);
     }
 
-    // Get category by id
+    
     public Category getCategoryById(Long id) {
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category", "id", id));
     }
 
-    // Create a new category
+    
     public Category createCategory(Category category) {
         return categoryRepository.save(category);
     }
 
-    // Update category
+    
     @Transactional
     public Category updateCategory(Long id, Category categoryDetails) {
         Category category = getCategoryById(id);
@@ -42,7 +42,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    // Delete category
+    
     public void deleteCategory(Long id) {
         Category category = getCategoryById(id);
         categoryRepository.delete(category);
